@@ -19,7 +19,9 @@ class DataPlayerController extends Controller
         $players = player::when($search, function ($query, $search) {
             return $query->where('name', 'like', "%{$search}%")
                         ->orWhere('pubg_id', 'like', "%{$search}%");
-        })->paginate(10); // Pagination untuk hasil pencarian
+        })
+        ->orderBy('created_at', 'desc')
+        ->paginate(10); // Pagination untuk hasil pencarian
 
         return view('pages.dataPlayer.index', compact('players', 'search'));
     }
