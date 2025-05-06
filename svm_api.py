@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 # Load model dan scaler
 scaler = joblib.load('svm_model/scaler.joblib')
-model = joblib.load('svm_model/model_svm_bestcv.joblib')
+model = joblib.load('svm_model/model_svm_bestacc.joblib')
 
 @app.route('/predict', methods=['POST'])
 def predict():
